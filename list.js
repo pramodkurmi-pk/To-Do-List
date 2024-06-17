@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const express=require('express');
 const bodyParser=require('body-parser');
@@ -10,7 +11,7 @@ app.use(express.static("public"));
 
 let items1=[];
 
-mongoose.connect('mongodb+srv://pramodkurm:Pramod9691@cluster0.iyfocnp.mongodb.net/todolistDB');
+mongoose.connect(process.env.MONGO_URI);
 
 const itemSchema = new mongoose.Schema({
     name: String
